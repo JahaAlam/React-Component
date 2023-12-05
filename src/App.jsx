@@ -7,6 +7,7 @@ import Singer from './Singer'
 import Cricketer from './Cricketer'
 import Bookstore from './Bookstore'
 import Book from './Book'
+import Form from './Form'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -20,9 +21,9 @@ function App() {
   ]
 
   const players = [
-    {name: "sakib", age: 45},
-    {name: "rubel", age: 54},
-    {name: "musfiqu", age: 50}
+    {id: 1, name: "sakib", age: 45},
+    {id: 2, name: "rubel", age: 54},
+    {id: 3, name: "musfiqu", age: 50}
   ]
 
   const books = [
@@ -36,24 +37,28 @@ function App() {
     <>
      
       <h1>Vite + React</h1>
+      <Form></Form>
+
+
+
       <Bookstore books={books}></Bookstore>
 
 
       <Person></Person>
       {
-        singers.map(singer=><Singer singer= {singer}></Singer>)
+        singers.map(singer=><Singer key= {singer.id} singer= {singer}></Singer>)
       }
 
 
 {
-  players.map(player=><Cricketer player={player}></Cricketer>)
+  players.map(player=><Cricketer key={player.id}  player={player}></Cricketer>)
 }
 
 
 
       <Actor name ={'bapparaz'} ></Actor>
       {
-        actors.map(actor =><Actor name = {actor} ></Actor>)
+        actors.map(actor =><Actor key={actor} name = {actor} ></Actor>)
       }
 
    
